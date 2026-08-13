@@ -105,7 +105,7 @@ Fine-tuning dilakukan menggunakan lima seed:
 2024
 7
 99.
-
+```
 
 # 📓 Notebook 3 — Semantic Search & Evaluation
 Pipeline :
