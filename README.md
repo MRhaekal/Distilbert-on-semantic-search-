@@ -109,6 +109,8 @@ Fine-tuning dilakukan menggunakan lima seed:
 
 # 📓 Notebook 3 — Semantic Search & Evaluation
 Pipeline :
+
+```
 Dokumen
    ↓
 Tokenizer DistilBERT
@@ -126,3 +128,4 @@ FAISS IndexFlatIP
 Semantic Retrieval
    ↓
 Top-K Documents
+```
