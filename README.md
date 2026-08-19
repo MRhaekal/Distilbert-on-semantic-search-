@@ -1,26 +1,26 @@
 # Semantic Search with Fine-Tuned DistilBERT
 
-Repository ini berisi implementasi penelitian mengenai **Semantic Search untuk pencarian dokumen arsip akademik** menggunakan model **DistilBERT** yang telah melalui proses fine-tuning dan **FAISS** sebagai library untuk pencarian berbasis vektor.
+Repository ini berisi implementasi penelitian mengenai Semantic Search untuk pencarian dokumen arsip akademik menggunakan model DistilBERT yang telah melalui proses fine-tuning dan FAISS sebagai library untuk pencarian berbasis vektor.
 
 Penelitian dilakukan melalui tiga notebook yang saling berkesinambungan, mulai dari eksplorasi dataset, fine-tuning model, hingga implementasi dan evaluasi semantic search.
 
 ---
 
-## 📌 Tujuan Penelitian
+## Tujuan Penelitian
 
-Penelitian ini bertujuan untuk mengembangkan sistem pencarian dokumen yang tidak hanya bergantung pada kecocokan kata secara langsung, tetapi dapat mempertimbangkan **kemiripan makna antara query dan dokumen**.
+Penelitian ini bertujuan untuk mengembangkan sistem pencarian dokumen yang tidak hanya bergantung pada kecocokan kata secara langsung, tetapi dapat mempertimbangkan kemiripan makna antara query dan dokumen.
 
 Pendekatan yang digunakan adalah:
 
-**Dataset → Preprocessing → Fine-tuning DistilBERT → Text Embedding → L2 Normalization → FAISS → Semantic Retrieval → Evaluation**
+Dataset → Preprocessing → Fine-tuning DistilBERT → Text Embedding → L2 Normalization → FAISS → Semantic Retrieval → Evaluation
 
 ---
 
-## 📂 Dataset
+## Dataset
 
 Dataset yang digunakan merupakan kumpulan dokumen arsip akademik dengan total:
 
-- **784 dokumen**
+- 784 dokumen
 - Format awal: XLSX
 - Atribut utama:
   - `title`
@@ -42,7 +42,7 @@ Distribusi kategori dianalisis terlebih dahulu melalui tahap Exploratory Data An
 
 ---
 
-# 📓 Notebook 1 — Exploratory Data Analysis
+## Notebook 1 — Exploratory Data Analysis
 
 Notebook pertama digunakan untuk memahami karakteristik dataset sebelum masuk ke proses pelatihan model.
 
@@ -69,17 +69,15 @@ Output dari notebook ini digunakan sebagai data untuk proses fine-tuning pada No
 
 ---
 
-# 📓 Notebook 2 — Fine-Tuning DistilBERT
+## Notebook 2 — Fine-Tuning DistilBERT
 
-Notebook kedua berfokus pada proses penyesuaian model bahasa **cahya/distilbert-base-indonesian** agar representasi teks lebih sesuai dengan karakteristik dokumen arsip yang digunakan dalam penelitian.
+Notebook kedua berfokus pada proses penyesuaian model bahasa `cahya/distilbert-base-indonesian` agar representasi teks lebih sesuai dengan karakteristik dokumen arsip yang digunakan dalam penelitian.
 
 ### Model
 
-**Base Model:**
+Base Model: `cahya/distilbert-base-indonesian`
 
-`cahya/distilbert-base-indonesian`
-
-Model digunakan untuk menghasilkan representasi teks berdimensi **768**.
+Model digunakan untuk menghasilkan representasi teks berdimensi 768.
 
 ### Proses Fine-Tuning
 
@@ -98,34 +96,16 @@ Tahapan utama:
 ### Multi-Seed Experiment
 
 Fine-tuning dilakukan menggunakan lima seed:
-
-```text
 42
 123
 2024
 7
-99.
-```
+99
 
-# 📓 Notebook 3 — Semantic Search & Evaluation
-Pipeline :
 
-```
-Dokumen
-   ↓
-Tokenizer DistilBERT
-   ↓
-DistilBERT
-   ↓
-Mean Pooling
-   ↓
-Embedding 768 Dimensi
-   ↓
-L2 Normalization
-   ↓
-FAISS IndexFlatIP
-   ↓
-Semantic Retrieval
-   ↓
-Top-K Documents
-```
+---
+
+## Notebook 3 — Semantic Search & Evaluation
+
+Pipeline:
+Dokumen--Tokenizer DistilBERT--DistilBERT--Mean Pooling--Embedding 768 Dimensi--L2 Normalization--FAISS IndexFlatIP--Semantic Retrieval--Top-K Documents
